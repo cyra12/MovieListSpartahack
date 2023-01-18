@@ -27,7 +27,7 @@ void FindMovieOfGenre(string const & genre, vector<string> & listOfFoundMovies) 
 
 
 //appends genres to the end of the movie title using the proper behavior for the rest of the project.
-void GenreAdder(string & MovieTitle) {
+void GenreAdderOneAtATime(string & MovieTitle) {
     //for now, we will get genre information by taking cin.
     string genre;
     MovieTitle += delimiter + ",";
@@ -37,12 +37,19 @@ void GenreAdder(string & MovieTitle) {
     MovieTitle += "\\n";
 }
 
+void GenreAdderAllFromStandardInput(string & MovieTitle) {
+    string GenreList;
+    getline(std::cin, GenreList);
+    MovieTitle += delimiter + GenreList;
+}
+
 
 //add movie to the text file of movies.
 //not quite sure yet how to get the genre information, thats something I'll worry about later.
-
 void AddMovieToList (string & MovieTitle) {
-    GenreAdder(MovieTitle);
+    //GenreAdderOneAtATime(MovieTitle);
+
+    GenreAdderAllFromStandardInput(MovieTitle);
     std::ofstream MovieList;
     MovieList.open("Movies.txt", std::ios_base::app);
     MovieList << MovieTitle << "\n";
@@ -54,19 +61,19 @@ void AddMovieToList (string & MovieTitle) {
 
 int main () {
 
-    string movietitle;
-    getline(std::cin, movietitle);
+    string movietitle = "Star Wars";
+    // getline(std::cin, movietitle);
     AddMovieToList(movietitle);
-    std::cout << "Movie added" << std::endl;
+    // std::cout << "Movie added" << std::endl;
 
-    vector<string> foundMovies;
+    // vector<string> foundMovies;
     
-    string genreForSearch;
-    getline(std::cin, genreForSearch);
-    FindMovieOfGenre(genreForSearch, foundMovies);
-    for(string s: foundMovies) {
-        std::cout << s << std::endl;
-    }
+    // string genreForSearch;
+    // getline(std::cin, genreForSearch);
+    // FindMovieOfGenre(genreForSearch, foundMovies);
+    // for(string s: foundMovies) {
+    //     std::cout << s << std::endl;
+    // }
 
 
 
