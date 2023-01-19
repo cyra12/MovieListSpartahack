@@ -46,10 +46,13 @@ void GenreAdderAllFromStandardInput(string & MovieTitle) {
 
 //add movie to the text file of movies.
 //not quite sure yet how to get the genre information, thats something I'll worry about later.
-void AddMovieToList (string & MovieTitle) {
+void AddMovieToList () {
     //GenreAdderOneAtATime(MovieTitle);
 
-    GenreAdderAllFromStandardInput(MovieTitle);
+    //GenreAdderAllFromStandardInput(MovieTitle);
+    string MovieTitle;
+    getline(std::cin, MovieTitle);
+
     std::ofstream MovieList;
     MovieList.open("Movies.txt", std::ios_base::app);
     MovieList << MovieTitle << "\n";
@@ -60,10 +63,10 @@ void AddMovieToList (string & MovieTitle) {
 
 
 int main () {
-
-    string movietitle = "Star Wars";
+    AddMovieToList();
+    //string movietitle = "Star Wars";
     // getline(std::cin, movietitle);
-    AddMovieToList(movietitle);
+    //AddMovieToList(movietitle);
     // std::cout << "Movie added" << std::endl;
 
     // vector<string> foundMovies;
