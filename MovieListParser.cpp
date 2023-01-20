@@ -2,7 +2,6 @@
 #include <fstream>
 #include <string>
 #include <regex>
-
 using std::string;
 using std::fstream;
 
