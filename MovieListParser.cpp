@@ -2,14 +2,14 @@
 #include <fstream>
 #include <string>
 #include <regex>
-#include <vector>
-using std::vector;
+
 using std::string;
 using std::fstream;
 
 string const delimiter = ";";
 //searches the Movies text file for movies with the genre specified
-void FindMovieOfGenre(string const & genre, vector<string> & listOfFoundMovies) {
+void FindMoviesOfGenre(string const & genre) {
+    bool flag = false;
     fstream newfile;
     newfile.open("Movies.txt", std::ios::in);
     string currentMovie;
@@ -18,40 +18,19 @@ void FindMovieOfGenre(string const & genre, vector<string> & listOfFoundMovies) 
         std::sregex_iterator iter(currentMovie.begin(), currentMovie.end(), pattern);
         std::sregex_iterator end;
         while (iter != end) {
-            listOfFoundMovies.push_back(iter->str());
+            flag = true;
+            std::cout << iter->str() << std::endl;
             iter++;
         }
     }
     newfile.close();
-}
-
-
-//appends genres to the end of the movie title using the proper behavior for the rest of the project.
-void GenreAdderOneAtATime(string & MovieTitle) {
-    //for now, we will get genre information by taking cin.
-    string genre;
-    MovieTitle += delimiter + ",";
-    while(getline(std::cin, genre) && genre != "0") {
-        MovieTitle += " " + genre + ",";
+    if(!flag) {
+        std::cout << "No such movies found" << std::endl;
     }
-    MovieTitle += "\\n";
 }
-
-void GenreAdderAllFromStandardInput(string & MovieTitle) {
-    string GenreList;
-    getline(std::cin, GenreList);
-    MovieTitle += delimiter + GenreList;
-}
-
 
 //add movie to the text file of movies.
-//not quite sure yet how to get the genre information, thats something I'll worry about later.
-void AddMovieToList () {
-    //GenreAdderOneAtATime(MovieTitle);
-
-    //GenreAdderAllFromStandardInput(MovieTitle);
-    string MovieTitle;
-    getline(std::cin, MovieTitle);
+void AddMovieToList (string & MovieTitle) {
 
     std::ofstream MovieList;
     MovieList.open("Movies.txt", std::ios_base::app);
@@ -59,26 +38,16 @@ void AddMovieToList () {
     MovieList.close();
 }
 
-
-
-
 int main () {
-    AddMovieToList();
-    //string movietitle = "Star Wars";
-    // getline(std::cin, movietitle);
-    //AddMovieToList(movietitle);
-    // std::cout << "Movie added" << std::endl;
+    string command;
+    getline(std::cin, command);
+    if(command.find(";") != std::string::npos) {
+        AddMovieToList(command);
+    } else {
+        FindMoviesOfGenre(command);
+    }
 
-    // vector<string> foundMovies;
-    
-    // string genreForSearch;
-    // getline(std::cin, genreForSearch);
-    // FindMovieOfGenre(genreForSearch, foundMovies);
-    // for(string s: foundMovies) {
-    //     std::cout << s << std::endl;
-    // }
-
-
+    // push test!!
 
     std::cout << std::endl << "program end reached" << std::endl;
     return 0;

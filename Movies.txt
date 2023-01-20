@@ -1,0 +1,18 @@
+Die hard;, Action, Mystery & thriller,\n
+Everything Everywhere All At Once;, Comedy, Adventure, Sci-fi, Fantasy,\n
+Drive;, Action,\n
+Blade Runner;, Sci-fi, Mystery & thriller,\n
+blade runner_2049;, Sci-fi, Mystery & thriller,\n
+Waterboy;, Comedy,\n
+Knives Out;, Mystery & thriller, Comedy, Drama,\n
+The Batman;, Action, Adventure, Crime, Drama,\n
+The Godfather;, Crime, Drama,\n
+The Incredibles;, Kids & family, Comedy, Adventure, Animation,\n
+Akira;, Sci-fi, Anime,\n
+the wolf of wall street;, Drama,\n
+American Psycho;, Comedy, Mystery & thriller, Horror,\n
+exit;, Drama, Romance,\n
+Puss In Boots The Last Wish;, Kids & family, Comedy, Adventure, Animation,\n
+Wreck It Ralph;, Kids & family, Comedy, Adventure, Animation,\n
+Parasite;, Horror, Sci-fi,\n
+Kung Fu Panda;, Kids & family, Comedy, Adventure, Animation,\n
